@@ -1,0 +1,36 @@
+body {
+	background-color: grey;
+
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	color:white;
+}
+
+#wrapper {
+	width:970px;
+	padding: 0px;
+	margin:0 auto;
+}
+.inline {
+	display: inline-block;
+}
+
+.colors {
+	font-size: 20px;
+
+}
+.bold {
+	font-weight: bold;
+}
+
+#header {
+	display: inline-block;
+}
+#log {
+	display: inline-block;
+	margin-left: 300px;
+}

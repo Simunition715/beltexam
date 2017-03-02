@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<title>Welcome</title>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Welcome!</h1>
+		{% if messages %}
+		<ul>
+	    	{% for message in messages %}
+	    	<li>{{ message }}</li>
+	    	{% endfor %}
+		</ul>
+		{% endif %}
+
+		<form action="/register" method="post">
+		{% csrf_token %}
+			<label>First Name:</label>
+			<div>
+				<input type="text" name="firstname">
+			</div>
+			<label>Last Name:</label>
+			<div>
+				<input type="text" name="lastname">
+			</div>
+			<label>Alias:</label>
+			<div>
+				<input type="text" name="alias">
+			</div>
+			<label>Email:</label>
+			<div>
+				<input type="text" name="email">
+			</div>
+			<label>Password:</label>
+			<div>
+				<input type="password" name="password">
+			</div>
+			<label>Confirm Password:</label>
+			<div>
+				<input type="password" name="confirm">
+			</div>
+			<label>Date of Birth:</label>
+			<div>
+				<input type="date" name="dob">
+			</div>
+			<div>
+				<input type="submit" value="Register">
+			</div>
+		</form>
+		<h1>Login!</h1>
+		<form action="/login" method="post">
+		{% csrf_token %}
+			<label>Email:</label>
+			<div>
+				<input type="text" name="email">
+			</div>
+			<label>Password:</label>
+			<div>
+				<input type="password" name="password">
+			</div>
+			<div>
+				<input type="submit" value="Login">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<title>Friends</title>
+</head>
+<body>
+	<div id="wrapper">
+	<h1 id="header">Welcome &nbsp; {{curr_user.firstname}}&nbsp;{{curr_user.lastname}}</h1>
+	<p id="log"><a href="/friends">Home</a>&nbsp;|&nbsp;<a href="/logout">Logout</a></p>
+	<div>
+		<h2>Here is a list of your friends!</h2>
+		<table>
+			<thead>
+				<tr>
+					<td class="bold">Alias</td>
+					<td class="bold">Action</td>
+				</tr>
+			</thead>
+			    {% for user in friends %}
+                <tr>
+	                <td><span class="colors">{{user.newfriend.alias}}</span></td>
+	                <td>
+	                    <a href='profile/{{user.newfriend.id}}'><h4 class='inline'>View Profile</h4></a>&nbsp;|&nbsp;
+	                    <a href='remove/{{user.newfriend.id}}'><h4 class='inline'>Remove as Friend</h4></a>
+	                </td>
+            	</tr>
+            {% endfor %}
+		</table>	
+	</div>
+	<div><h2>Other Users not on your Friends List</h2></div>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<td class="bold">Alias</td>
+					<td class="bold">Action</td>
+				</tr>
+				{% for user in allfriends %}
+				<tr>
+					<td><a href="/profile/{{user.id}}"><span class="colors">{{user.firstname}}&nbsp;{{user.lastname}}</span></a></td>
+					<td><a href="/add_friend/{{user.id}}">Add as Friend</a></td
+					
+				</tr>
+				{% endfor %}
+			</thead>
+		</table>
+	</div>
+	
+</body>
+</html>
