@@ -11,6 +11,9 @@
 	<p id="log"><a href="/friends">Home</a>&nbsp;|&nbsp;<a href="/logout">Logout</a></p>
 	<div>
 		<h2>Here is a list of your friends!</h2>
+		<h3>You have {{friends|length}}&nbsp;Friends</h3>
+
+	
 		<table>
 			<thead>
 				<tr>
@@ -19,6 +22,9 @@
 				</tr>
 			</thead>
 			    {% for user in friends %}
+
+
+			 
                 <tr>
 	                <td><span class="colors">{{user.newfriend.alias}}</span></td>
 	                <td>
@@ -27,6 +33,7 @@
 	                </td>
             	</tr>
             {% endfor %}
+        
 		</table>	
 	</div>
 	<div><h2>Other Users not on your Friends List</h2></div>
@@ -34,7 +41,7 @@
 		<table>
 			<thead>
 				<tr>
-					<td class="bold">Alias</td>
+					<td class="bold">Name</td>
 					<td class="bold">Action</td>
 				</tr>
 				{% for user in allfriends %}

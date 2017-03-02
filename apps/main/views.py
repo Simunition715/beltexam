@@ -33,6 +33,7 @@ def profile(request,id):
 	return render(request,"main/profile.html",context)
 
 def friends(request):
+	request.session['question']="You Have No Friends"
 	ids=[]
 	friends = Friend.objects.filter(userfriend = request.session['user_id'])
 	for friend in friends:
